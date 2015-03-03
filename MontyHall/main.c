@@ -127,7 +127,7 @@ int main(int argc, const char * argv[])
     int i;
     int change = 0;
     int noChange = 0;
-    printf("Running the test %i times", count);
+    printf("Running the test %i times\n", count);
     for(i = 0; i < count; i++)
     {
         change = change + changeChoiceAfterReveal();
