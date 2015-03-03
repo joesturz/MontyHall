@@ -12,10 +12,10 @@
 #include <time.h>
 
 
-
+// helper method for building an array of 3 elements representing the 3 doors
+// the elements are randomized for each call
 int* buildDoors()
 {
-    //set the seed
     //srand((unsigned)time(NULL));
     int randomDoor = rand()%3;
     static int doors[3];
@@ -34,6 +34,7 @@ int* buildDoors()
     return doors;
 }
 
+//Change your decision after an empty door is revealed
 int changeChoiceAfterReveal()
 {
     int* doors;
@@ -79,6 +80,8 @@ int changeChoiceAfterReveal()
         return 0;
     }
 }
+
+//Make no change in your decision after a single an empty door is revealed
 int dontChangeChoiceAfterReveal()
 {
     int* doors;
@@ -116,8 +119,10 @@ int dontChangeChoiceAfterReveal()
 
 int main(int argc, const char * argv[])
 {
+    //seed rand
     srand((unsigned)time(NULL));
     
+    //the number of times to run the test
     int count = 1000000;
     int i;
     int change = 0;
