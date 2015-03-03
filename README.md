@@ -3,7 +3,7 @@ A test of the Monty Hall Problem in C: http://en.wikipedia.org/wiki/Monty_Hall_p
 
 to compile:
 
-$ gcc MontyHall.c
+$ gcc main.c
 
 to run:
 
