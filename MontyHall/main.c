@@ -123,6 +123,12 @@ int main(int argc, const char * argv[])
     if(argc > 1)
     {
        count = atol(argv[1]);
+       if(count < 100)
+       {
+	 printf("You have chosen less than the minimum of 100.\n");
+	 printf("The minimum has been set!\n");
+	 count = 100L;
+       }
     }
     time_t rawtime;
     struct tm * timeinfo;
@@ -138,11 +144,14 @@ int main(int argc, const char * argv[])
     //int noChange = 0;
     printf("Running the test %ld times\n", count);
     printf ( "Start time: %s", asctime (timeinfo) );
+    long modNum = count/100;
+    int percent = 0;
     for(i = 0; i < count; i++)
     {
-        if(i%1000000==0)
+        if(i%modNum == 0)
         {
-	  printf("Made it to %ld\n", i);
+	  printf("%d%% Complete\n", percent);
+	  percent++;
         }
         change = change + changeChoiceAfterReveal();
         //noChange = noChange + dontChangeChoiceAfterReveal();;
