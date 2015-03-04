@@ -132,8 +132,8 @@ int main(int argc, const char * argv[])
     }
     time_t rawtime;
     struct tm * timeinfo;
-    time ( &rawtime );
-    timeinfo = localtime ( &rawtime );
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
     //seed rand
     srand((unsigned)time(NULL));
     
@@ -143,7 +143,7 @@ int main(int argc, const char * argv[])
     long change = 0L;
     //int noChange = 0;
     printf("Running the test %ld times\n", count);
-    printf ( "Start time: %s", asctime (timeinfo) );
+    printf("Start time: %s", asctime(timeinfo));
     long modNum = count/100;
     int percent = 0;
     for(i = 0; i < count; i++)
@@ -158,10 +158,10 @@ int main(int argc, const char * argv[])
     }
     float ratioChange = change/(float)count;
     //float ratioNoChange = noChange/(float)count;
-    
-    time ( &rawtime );
-    timeinfo = localtime ( &rawtime );
-    printf ( "End time: %s", asctime (timeinfo) );
+    printf("Start time: %s", asctime (timeinfo));
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    printf("End time: %s", asctime (timeinfo));
     printf("Change door after reveal: %f\n", ratioChange);
     //printf("Keep same door after reveal: %f\n", ratioNoChange);
     return 0;
