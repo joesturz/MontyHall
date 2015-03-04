@@ -119,17 +119,20 @@ int dontChangeChoiceAfterReveal()
 
 int main(int argc, const char * argv[])
 {
-    
+    long count = 1000000000L;
+    if(argc > 1)
+    {
+       count = atol(argv[1]);
+    }
     time_t rawtime;
     struct tm * timeinfo;
-    
     time ( &rawtime );
     timeinfo = localtime ( &rawtime );
     //seed rand
     srand((unsigned)time(NULL));
     
     //the number of times to run the test
-    long count = 1000000000L;
+    //long count = 1000000000L;
     long i;
     long change = 0L;
     //int noChange = 0;
@@ -139,7 +142,7 @@ int main(int argc, const char * argv[])
     {
         if(i%1000000==0)
         {
-            //printf("Made it to %ld\n", i);
+	  printf("Made it to %ld\n", i);
         }
         change = change + changeChoiceAfterReveal();
         //noChange = noChange + dontChangeChoiceAfterReveal();;
