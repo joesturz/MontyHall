@@ -119,23 +119,38 @@ int dontChangeChoiceAfterReveal()
 
 int main(int argc, const char * argv[])
 {
+    
+    time_t rawtime;
+    struct tm * timeinfo;
+    
+    time ( &rawtime );
+    timeinfo = localtime ( &rawtime );
     //seed rand
     srand((unsigned)time(NULL));
     
     //the number of times to run the test
-    int count = 1000000;
-    int i;
-    int change = 0;
-    int noChange = 0;
-    printf("Running the test %i times", count);
+    long count = 1000000000L;
+    long i;
+    long change = 0L;
+    //int noChange = 0;
+    printf("Running the test %ld times\n", count);
+    printf ( "Start time: %s", asctime (timeinfo) );
     for(i = 0; i < count; i++)
     {
+        if(i%1000000==0)
+        {
+            //printf("Made it to %ld\n", i);
+        }
         change = change + changeChoiceAfterReveal();
-        noChange = noChange + dontChangeChoiceAfterReveal();;
+        //noChange = noChange + dontChangeChoiceAfterReveal();;
     }
     float ratioChange = change/(float)count;
-    float ratioNoChange = noChange/(float)count;
+    //float ratioNoChange = noChange/(float)count;
+    
+    time ( &rawtime );
+    timeinfo = localtime ( &rawtime );
+    printf ( "End time: %s", asctime (timeinfo) );
     printf("Change door after reveal: %f\n", ratioChange);
-    printf("Keep same door after reveal: %f\n", ratioNoChange);
+    //printf("Keep same door after reveal: %f\n", ratioNoChange);
     return 0;
 }
