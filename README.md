@@ -1,5 +1,5 @@
 # MontyHall
-A test of the Monty Hall Problem in C: http://en.wikipedia.org/wiki/Monty_Hall_problem
+A computaional simulation of the Monty Hall Problem in C: http://en.wikipedia.org/wiki/Monty_Hall_problem
 
 This is a problem that many people would not believe the results of until computational simulation proved otherwise.
 
